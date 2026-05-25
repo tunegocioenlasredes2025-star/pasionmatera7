@@ -1169,6 +1169,104 @@ const PRODUCTS = [
     description: "Mate Sport exclusiva, 500 gramos",
     featured: false,
     tags: ["yerba"]
+  },
+
+  // ═══════════════════════════════════════
+  // ACCESORIOS
+  // ═══════════════════════════════════════
+  {
+    id: 114,
+    name: "Latas Lisas Blancas x2 — Yerbero + Azucarero Grandes",
+    price: 6500,
+    category: "accesorios",
+    image: "images/114.jpg",
+    description: "Set yerbero + azucarero grandes, latas lisas. Diferentes colores disponibles.",
+    featured: false,
+    tags: ["accesorio", "yerbero", "azucarero", "latas"]
+  },
+  {
+    id: 115,
+    name: "Latas Yerbero y Azucarero Grabadas",
+    price: 8000,
+    category: "accesorios",
+    image: "images/115.jpg",
+    description: "Diferentes colores, grabados y cuadros de fútbol disponibles.",
+    featured: false,
+    tags: ["accesorio", "yerbero", "azucarero", "latas", "grabado", "futbol"]
+  },
+  {
+    id: 116,
+    name: "Chaulata x2 — Yerbero + Azucarero Interior Plastificado",
+    price: 8500,
+    category: "accesorios",
+    image: "images/116.jpg",
+    description: "Set de chaulatas yerbero + azucarero con interior plastificado.",
+    featured: false,
+    tags: ["accesorio", "yerbero", "azucarero", "chaulata"]
+  },
+  {
+    id: 117,
+    name: "Kit Tapamatero — Tapamate + Tapabombilla de Silicona",
+    price: 11000,
+    category: "accesorios",
+    image: "images/117.jpg",
+    description: "Tapamate + tapabombilla de silicona. Todos en color negro.",
+    featured: true,
+    tags: ["accesorio", "tapamate", "tapabombilla", "silicona", "kit"]
+  },
+  {
+    id: 118,
+    name: "Cosito para el Mate de Acero Inoxidable",
+    price: 7000,
+    category: "accesorios",
+    image: "images/118.jpg",
+    description: "Cosito limpiabombilla / removedor de yerba en acero inoxidable.",
+    featured: false,
+    tags: ["accesorio", "acero", "cosito"]
+  },
+  {
+    id: 119,
+    name: "Cajas de Presentación",
+    price: 7000,
+    category: "accesorios",
+    image: "images/119.jpg",
+    description: "Caja de presentación premium. Ideal para regalar.",
+    featured: false,
+    tags: ["accesorio", "caja", "regalo", "presentacion"]
+  },
+
+  // ═══════════════════════════════════════
+  // ASADO
+  // ═══════════════════════════════════════
+  {
+    id: 120,
+    name: "Set de Asado Cerrado Valijita — Plato, Cuchillo y Tenedor",
+    price: 8500,
+    category: "asado",
+    image: "images/120.jpg",
+    description: "Set de asado en valijita cerrada: incluye plato, cuchillo y tenedor.",
+    featured: false,
+    tags: ["asado", "set", "cubiertos", "valijita"]
+  },
+  {
+    id: 121,
+    name: "Set de Cubiertos de Asado Estilo Alemania Rosmania — 12 Piezas",
+    price: 55000,
+    category: "asado",
+    image: "images/121.jpg",
+    description: "Set premium de 12 piezas, estilo Alemania Rosmania. Acabado de alta calidad.",
+    featured: true,
+    tags: ["asado", "cubiertos", "premium", "set"]
+  },
+  {
+    id: 122,
+    name: "Tabla de Asado con Manija 50x30",
+    price: 25000,
+    category: "asado",
+    image: "images/122.jpg",
+    description: "Tabla de asado de madera con manija, medidas 50x30 cm.",
+    featured: true,
+    tags: ["asado", "tabla", "madera"]
   }
 ];
 
@@ -1183,7 +1281,9 @@ const CATEGORIES = [
   { id: "bombillas", label: "Bombillas", icon: "⚡" },
   { id: "materas", label: "Materas", icon: "👜" },
   { id: "vasos", label: "Vasos", icon: "🥤" },
-  { id: "yerbas", label: "Yerbas", icon: "🌿" }
+  { id: "yerbas", label: "Yerbas", icon: "🌿" },
+  { id: "accesorios", label: "Accesorios", icon: "🧰" },
+  { id: "asado", label: "Asado", icon: "🔥" }
 ];
 
 function formatPrice(price) {

@@ -696,6 +696,108 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
 .testimonial-author-info small { color: rgba(207,167,86,0.7); font-size: 0.75rem; }
 
 /* ══════════════════════════════════════
+   GRABADOS PERSONALIZADOS
+══════════════════════════════════════ */
+.grabados {
+  padding: 6rem 0;
+  background: linear-gradient(180deg, var(--crema) 0%, var(--blanco) 100%);
+  position: relative;
+}
+.grabados-intro { max-width: 620px; margin: 0 auto 3rem; text-align: center; }
+.grabados-intro p { color: var(--gris); font-size: 1.02rem; line-height: 1.7; }
+.grabados-examples {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 3.5rem;
+}
+.grabados-example {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  box-shadow: var(--sombra);
+}
+.grabados-example img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.grabados-example:hover img { transform: scale(1.07); }
+.grabados-example-label {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 1.5rem 1rem 1rem;
+  background: linear-gradient(transparent, rgba(36,58,32,0.9));
+  color: var(--crema);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+.grabados-prices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.grabado-card {
+  background: #fff;
+  border: 1px solid rgba(51,80,47,0.08);
+  border-radius: var(--radius);
+  padding: 2.25rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--sombra);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.grabado-card:hover { transform: translateY(-6px); box-shadow: var(--sombra-hover); border-color: var(--dorado); }
+.grabado-card-icon {
+  width: 66px; height: 66px;
+  margin-bottom: 1.1rem;
+  border-radius: 50%;
+  background: var(--crema);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.9rem;
+  border: 1px solid rgba(207,167,86,0.3);
+}
+.grabado-card h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--verde-dark);
+}
+.grabado-card .price-from { font-size: 0.74rem; color: var(--gris); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.4rem; }
+.grabado-card .price { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: var(--verde); font-weight: 700; margin: 0.1rem 0 1rem; }
+.grabado-card p { font-size: 0.83rem; color: var(--gris); line-height: 1.55; margin-bottom: 1.4rem; flex: 1; }
+.grabado-card .btn { width: 100%; justify-content: center; }
+.grabados-steps {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 3.5rem auto 0;
+  max-width: 860px;
+}
+.grabado-step { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; flex: 1; min-width: 150px; max-width: 200px; text-align: center; }
+.grabado-step-num {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--verde);
+  color: var(--crema);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+}
+.grabado-step p { font-size: 0.82rem; color: var(--gris); line-height: 1.45; }
+.grabado-step strong { color: var(--verde-dark); display: block; font-size: 0.88rem; margin-bottom: 0.15rem; }
+.grabados-cta { text-align: center; margin-top: 3rem; }
+
+@media (max-width: 768px) {
+  .grabados-examples { grid-template-columns: 1fr 1fr; }
+  .grabados-prices { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .grabados-examples { grid-template-columns: 1fr; }
+}
+
+/* ══════════════════════════════════════
    INSTAGRAM SECTION
 ══════════════════════════════════════ */
 .instagram-section { padding: 5rem 0; background: var(--blanco); }
