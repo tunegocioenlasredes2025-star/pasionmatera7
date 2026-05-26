@@ -1267,6 +1267,154 @@ const PRODUCTS = [
     description: "Tabla de asado de madera con manija, medidas 50x30 cm.",
     featured: true,
     tags: ["asado", "tabla", "madera"]
+  },
+
+  // ═══════════════════════════════════════
+  // YERBAS 1KG / BOLSÓN
+  // ═══════════════════════════════════════
+  {
+    id: 123,
+    name: "Yerba Bolsón Baldo 5kg",
+    price: 55500,
+    category: "yerbas",
+    image: "images/123.jpg",
+    description: "Bolsón de yerba Baldo de 5 kilos. Rendidor, ideal para casa o para compartir.",
+    featured: true,
+    tags: ["yerba", "baldo", "5kg", "bolson"]
+  },
+  {
+    id: 124,
+    name: "Yerba Mate Esmeralda 1kg",
+    price: 12500,
+    category: "yerbas",
+    image: "images/124.jpg",
+    description: "Yerba Mate Esmeralda, paquete de 1 kilo.",
+    featured: false,
+    tags: ["yerba", "esmeralda", "1kg"]
+  },
+  {
+    id: 125,
+    name: "Yerba Mate Rei Verde 1kg",
+    price: 11000,
+    category: "yerbas",
+    image: "images/125.jpg",
+    description: "Yerba Mate Rei Verde, paquete de 1 kilo.",
+    featured: false,
+    tags: ["yerba", "rei verde", "1kg"]
+  },
+  {
+    id: 126,
+    name: "Yerba Barao 1kg",
+    price: 8000,
+    category: "yerbas",
+    image: "images/126.jpg",
+    description: "Yerba Barao, paquete de 1 kilo.",
+    featured: false,
+    tags: ["yerba", "barao", "1kg"]
+  },
+  {
+    id: 127,
+    name: "Yerba Canarias Serena 1kg",
+    price: 13000,
+    category: "yerbas",
+    image: "images/127.jpg",
+    description: "Yerba Canarias Serena, paquete de 1 kilo.",
+    featured: false,
+    tags: ["yerba", "canarias", "serena", "1kg"]
+  },
+  {
+    id: 128,
+    name: "Yerba Canarias Edición Especial 1kg",
+    price: 13000,
+    category: "yerbas",
+    image: "images/128.jpg",
+    description: "Yerba Canarias Edición Especial, paquete de 1 kilo.",
+    featured: false,
+    tags: ["yerba", "canarias", "especial", "1kg"]
+  },
+  {
+    id: 129,
+    name: "Yerba Pindaré 1kg",
+    price: 9000,
+    category: "yerbas",
+    image: "images/129.jpg",
+    description: "Yerba Pindaré, paquete de 1 kilo.",
+    featured: false,
+    tags: ["yerba", "pindare", "1kg"]
+  },
+  {
+    id: 130,
+    name: "Yerba Baldo 1kg",
+    price: 13000,
+    category: "yerbas",
+    image: "images/130.jpg",
+    description: "Yerba Baldo, paquete de 1 kilo.",
+    featured: false,
+    tags: ["yerba", "baldo", "1kg"]
+  },
+  {
+    id: 131,
+    name: "Yerba Canarias Tradicional 1kg",
+    price: 11500,
+    category: "yerbas",
+    image: "images/131.jpg",
+    description: "Yerba Canarias Tradicional, paquete de 1 kilo.",
+    featured: false,
+    tags: ["yerba", "canarias", "tradicional", "1kg"]
+  },
+  {
+    id: 132,
+    name: "Yerba Canarias Té Verde y Jengibre 1kg",
+    price: 13000,
+    category: "yerbas",
+    image: "images/132.jpg",
+    description: "Yerba Canarias con té verde y jengibre, paquete de 1 kilo.",
+    featured: false,
+    tags: ["yerba", "canarias", "te verde", "jengibre", "1kg"]
+  },
+  {
+    id: 133,
+    name: "Yerba Verdecita 1kg",
+    price: 8000,
+    category: "yerbas",
+    image: "images/133.jpg",
+    description: "Yerba Verdecita, paquete de 1 kilo.",
+    featured: false,
+    tags: ["yerba", "verdecita", "1kg"]
+  },
+
+  // ═══════════════════════════════════════
+  // GRABADOS PERSONALIZADOS
+  // ═══════════════════════════════════════
+  {
+    id: 134,
+    name: "Grabado Personalizado para Mates",
+    price: 12000,
+    category: "grabados",
+    image: "images/grabado-mate.jpg",
+    description: "Personalizá tu mate con nombre, fecha, frase, escudo de tu equipo o el diseño que imagines. Grabado artesanal con acabado permanente. Se suma al mate que elijas del catálogo.",
+    featured: true,
+    tags: ["grabado", "personalizado", "mate", "regalo", "escudo", "nombre"]
+  },
+  {
+    id: 135,
+    name: "Grabado Personalizado para Bombillas",
+    price: 5000,
+    category: "grabados",
+    image: "images/grabado-bombilla.jpg",
+    description: "Iniciales, nombres o pequeños diseños grabados en tu bombilla. Detalle fino, elegante y permanente. Ideal para regalar o distinguir la tuya.",
+    featured: false,
+    tags: ["grabado", "personalizado", "bombilla", "regalo", "nombre"]
+  },
+  {
+    id: 136,
+    name: "Grabado Personalizado para Termos",
+    price: 13000,
+    category: "grabados",
+    image: "images/grabado-termo.jpg",
+    description: "Grabá tu termo con escudos, nombres, fechas o frases. Diseño 100% a medida y acabado profesional para que nunca te lo confundan.",
+    featured: false,
+    tags: ["grabado", "personalizado", "termo", "regalo", "escudo"]
   }
 ];
 
@@ -1283,7 +1431,8 @@ const CATEGORIES = [
   { id: "vasos", label: "Vasos", icon: "🥤" },
   { id: "yerbas", label: "Yerbas", icon: "🌿" },
   { id: "accesorios", label: "Accesorios", icon: "🧰" },
-  { id: "asado", label: "Asado", icon: "🔥" }
+  { id: "asado", label: "Asado", icon: "🔥" },
+  { id: "grabados", label: "Grabados", icon: "✍️" }
 ];
 
 function formatPrice(price) {

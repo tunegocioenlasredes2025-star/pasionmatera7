@@ -84,8 +84,8 @@ function openProductModal(product) {
             <button class="btn btn-primary" onclick="cart.add(getProductById(${product.id})); updateCartUI(); closeProductModal()">
               🛒 Agregar al carrito
             </button>
-            <button class="btn btn-whatsapp" onclick="cart.buyNow(getProductById(${product.id}))">
-              ${WA_ICON} Comprar por WhatsApp
+            <button class="btn btn-secondary" onclick="closeProductModal()">
+              Seguir viendo productos
             </button>
           </div>
         </div>
@@ -116,18 +116,16 @@ function createProductCard(product) {
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="img-placeholder" style="display:none">🧉</div>
       <div class="product-card-overlay">
-        <button class="btn btn-gold" onclick="event.stopPropagation();openProductModal(getProductById(${product.id}))">Ver detalle</button>
-        <button class="btn btn-whatsapp" onclick="event.stopPropagation();cart.buyNow(getProductById(${product.id}))">${WA_ICON} WhatsApp</button>
+        <button class="btn btn-gold" onclick="event.stopPropagation();openProductModal(getProductById(${product.id}))">Ver producto</button>
       </div>
     </div>
-    <div class="product-card-body">
+    <div class="product-card-body" onclick="openProductModal(getProductById(${product.id}))" style="cursor:pointer">
       <div class="product-category-tag">${catLabel}</div>
       <h3>${product.name}</h3>
       <div class="product-price">${formatPrice(product.price)}</div>
     </div>
     <div class="product-card-footer">
-      <button class="btn btn-secondary" onclick="cart.add(getProductById(${product.id})); updateCartUI()">+ Carrito</button>
-      <button class="btn btn-whatsapp" onclick="cart.buyNow(getProductById(${product.id}))">${WA_ICON}</button>
+      <button class="btn btn-primary" style="flex:1;justify-content:center" onclick="event.stopPropagation();cart.add(getProductById(${product.id})); updateCartUI()">🛒 Agregar al carrito</button>
     </div>`;
   return card;
 }

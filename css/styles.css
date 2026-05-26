@@ -340,6 +340,15 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
   max-width: 760px;
   animation: fadeUp 1s ease both;
 }
+.hero-logo {
+  height: 96px;
+  width: auto;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  border: 2px solid rgba(207,167,86,0.4);
+  animation: scaleIn 0.8s ease both;
+}
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -370,6 +379,13 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
   line-height: 1.7;
 }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-hero { padding: 1.1rem 2.4rem; font-size: 1.02rem; box-shadow: 0 8px 28px rgba(207,167,86,0.45); }
+.btn-ig {
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+  box-shadow: 0 6px 22px rgba(220,39,67,0.4);
+}
+.btn-ig:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(220,39,67,0.5); }
 .hero-scroll {
   position: absolute;
   bottom: 2.5rem;
