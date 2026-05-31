@@ -981,13 +981,23 @@ const PRODUCTS = [
   },
   {
     id: 94,
-    name: "Vaso Fernetero Grabado",
+    name: "Vasos Ferneteros Grabados",
     price: 8000,
     category: "vasos",
-    image: "images/94.jpg",
-    description: "Diferentes diseños grabados disponibles",
-    featured: false,
-    tags: ["vaso", "grabado"]
+    image: "images/94-boca.jpg",
+    description: "Vasos ferneteros con grabados. Elegí tu diseño deslizando entre los modelos disponibles.",
+    featured: true,
+    tags: ["vaso", "fernetero", "grabado", "futbol"],
+    gallery: [
+      { src: "images/94-afa.jpg",         label: "AFA · Selección" },
+      { src: "images/94-boca.jpg",        label: "Boca Juniors" },
+      { src: "images/94-river.jpg",       label: "River Plate" },
+      { src: "images/94-racing.jpg",      label: "Racing Club" },
+      { src: "images/94-casla.jpg",       label: "San Lorenzo (CASLA)" },
+      { src: "images/94-papa.jpg",        label: "El Mejor Papá" },
+      { src: "images/94-fernetometro.jpg",label: "Fernetómetro" },
+      { src: "images/94-ruido.jpg",       label: "Un Poco de Ruido" }
+    ]
   },
   {
     id: 95,
@@ -1008,6 +1018,36 @@ const PRODUCTS = [
     description: "Lisos, ideal para grabados personalizados",
     featured: false,
     tags: ["vaso", "grabado"]
+  },
+  {
+    id: 137,
+    name: "Mate Térmico",
+    price: 6980,
+    category: "vasos",
+    image: "images/137-negro.jpg",
+    description: "Mate térmico con interior que conserva la temperatura. Elegí tu color deslizando entre las opciones.",
+    featured: true,
+    tags: ["mate", "termico", "vaso"],
+    gallery: [
+      { src: "images/137-negro.jpg",  label: "Negro" },
+      { src: "images/137-blanco.jpg", label: "Blanco" },
+      { src: "images/137-rosa.jpg",   label: "Rosa" }
+    ]
+  },
+  {
+    id: 138,
+    name: "Vaso Copita Interior Térmico",
+    price: 6980,
+    category: "vasos",
+    image: "images/138-negro.jpg",
+    description: "Vaso copita con interior térmico de acero inoxidable. Elegí tu color deslizando entre las opciones.",
+    featured: false,
+    tags: ["vaso", "copita", "termico", "acero"],
+    gallery: [
+      { src: "images/138-negro.jpg",  label: "Negro" },
+      { src: "images/138-blanco.jpg", label: "Blanco" },
+      { src: "images/138-rosa.jpg",   label: "Rosa" }
+    ]
   },
 
   // ═══════════════════════════════════════
