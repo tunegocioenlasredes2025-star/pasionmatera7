@@ -1190,6 +1190,47 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
 .modal-close-btn:hover { background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
 .modal-overlay { position: relative; }
 
+/* ── Carrusel de variantes en la ficha ── */
+.modal-variant { font-size: 0.85rem; color: var(--gris); }
+.modal-variant strong { color: var(--negro); }
+
+.modal-gallery { position: relative; aspect-ratio: 1; }
+.mg-viewport { width: 100%; height: 100%; overflow: hidden; touch-action: pan-y; cursor: grab; }
+.mg-viewport:active { cursor: grabbing; }
+.mg-track { display: flex; height: 100%; transition: transform 0.4s ease; }
+.mg-slide { flex: 0 0 100%; height: 100%; }
+.mg-slide img { width: 100%; height: 100%; object-fit: cover; user-select: none; -webkit-user-drag: none; }
+
+.mg-nav {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 4;
+  width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; line-height: 1; color: var(--verde);
+  background: rgba(255,255,255,0.92); border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.18); transition: var(--transition);
+}
+.mg-nav:hover { background: #fff; transform: translateY(-50%) scale(1.08); }
+.mg-prev { left: 0.6rem; }
+.mg-next { right: 0.6rem; }
+
+.mg-counter {
+  position: absolute; top: 0.6rem; right: 0.6rem; z-index: 4;
+  font-size: 0.72rem; font-weight: 700; color: #fff;
+  background: rgba(0,0,0,0.55); padding: 0.25rem 0.6rem; border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+
+.mg-dots {
+  position: absolute; left: 0; right: 0; bottom: 0.7rem; z-index: 4;
+  display: flex; justify-content: center; gap: 6px; padding: 0 2.5rem;
+}
+.mg-dot {
+  width: 7px; height: 7px; border-radius: 999px; cursor: pointer; padding: 0;
+  background: rgba(255,255,255,0.65); border: none; box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  transition: width 0.3s ease, background 0.3s ease;
+}
+.mg-dot.active { width: 20px; background: var(--dorado); }
+
 /* ══════════════════════════════════════
    CATALOG PAGE
 ══════════════════════════════════════ */

@@ -590,9 +590,22 @@ const PRODUCTS = [
     price: 30000,
     category: "termos",
     image: "images/57.jpg",
-    description: "Termo media manija con grabados futboleros predeterminados",
+    description: "Termo media manija con grabados futboleros predeterminados. Elegí tu diseño favorito deslizando entre los modelos disponibles.",
     featured: true,
-    tags: ["termo", "futbol", "grabado"]
+    tags: ["termo", "futbol", "grabado"],
+    // Galería de variantes: se muestra como carrusel deslizable en la ficha.
+    // Para sumar un diseño: agregá { src, label } y subí la imagen a images/.
+    gallery: [
+      { src: "images/57-afa.jpg",          label: "AFA · Selección" },
+      { src: "images/57-boca.jpg",         label: "Boca Juniors" },
+      { src: "images/57-river.jpg",        label: "River Plate" },
+      { src: "images/57-racing.jpg",       label: "Racing Club" },
+      { src: "images/57-independiente.jpg",label: "Independiente" },
+      { src: "images/57-san-lorenzo.jpg",  label: "San Lorenzo" },
+      { src: "images/57-huracan.jpg",      label: "Huracán" },
+      { src: "images/57-lanus.jpg",        label: "Lanús" },
+      { src: "images/57-gimnasia.jpg",     label: "Gimnasia" }
+    ]
   },
   {
     id: 58,

@@ -64,24 +64,52 @@ function closeCart() {
 // ═══════════════════════════════
 // PRODUCT MODAL
 // ═══════════════════════════════
+// Estado del carrusel de variantes del modal (un producto a la vez)
+let galleryState = null;
+
+function buildModalMedia(product) {
+  const hasGallery = Array.isArray(product.gallery) && product.gallery.length > 1;
+  if (!hasGallery) {
+    return `
+      <div class="modal-image">
+        <img src="${getImagePath(product.image)}" alt="${product.name}"
+          onerror="this.style.display='none';this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:100%;font-size:4rem;\\'>🧉</div>'">
+      </div>`;
+  }
+  const slides = product.gallery.map(v => `
+    <div class="mg-slide"><img src="${getImagePath(v.src)}" alt="${product.name} — ${v.label}"
+      onerror="this.style.display='none';this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:100%;font-size:4rem;\\'>🧉</div>'"></div>`).join('');
+  const dots = product.gallery.map((v, i) =>
+    `<button class="mg-dot" onclick="galleryGo(${i})" aria-label="${v.label}"></button>`).join('');
+  return `
+    <div class="modal-image modal-gallery">
+      <div class="mg-viewport" id="mg-viewport">
+        <div class="mg-track" id="mg-track">${slides}</div>
+      </div>
+      <button class="mg-nav mg-prev" onclick="galleryStep(-1)" aria-label="Diseño anterior">‹</button>
+      <button class="mg-nav mg-next" onclick="galleryStep(1)" aria-label="Diseño siguiente">›</button>
+      <span class="mg-counter" id="mg-counter"></span>
+      <div class="mg-dots">${dots}</div>
+    </div>`;
+}
+
 function openProductModal(product) {
   const overlay = document.getElementById('product-modal');
   if (!overlay) return;
+  const hasGallery = Array.isArray(product.gallery) && product.gallery.length > 1;
   overlay.innerHTML = `
     <div class="modal" role="dialog" aria-modal="true">
       <button class="modal-close-btn" onclick="closeProductModal()">✕</button>
       <div class="modal-body">
-        <div class="modal-image">
-          <img src="${getImagePath(product.image)}" alt="${product.name}"
-            onerror="this.style.display='none';this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:100%;font-size:4rem;\\'>🧉</div>'">
-        </div>
+        ${buildModalMedia(product)}
         <div class="modal-info">
           <div class="modal-category">${CATEGORIES.find(c => c.id === product.category)?.label || ''} ${CATEGORIES.find(c => c.id === product.category)?.icon || ''}</div>
           <h2 class="modal-title">${product.name}</h2>
+          ${hasGallery ? `<div class="modal-variant">Diseño: <strong id="mg-label"></strong></div>` : ''}
           <div class="modal-price">${formatPrice(product.price)}</div>
           <p class="modal-desc">${product.description}</p>
           <div class="modal-actions">
-            <button class="btn btn-primary" onclick="cart.add(getProductById(${product.id})); updateCartUI(); closeProductModal()">
+            <button class="btn btn-primary" onclick="addToCartFromModal(${product.id}); updateCartUI(); closeProductModal()">
               🛒 Agregar al carrito
             </button>
             <button class="btn btn-secondary" onclick="closeProductModal()">
@@ -94,12 +122,70 @@ function openProductModal(product) {
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
   overlay.onclick = (e) => { if (e.target === overlay) closeProductModal(); };
+
+  if (hasGallery) {
+    galleryState = {
+      items: product.gallery,
+      index: 0,
+      track: document.getElementById('mg-track'),
+      label: document.getElementById('mg-label'),
+      counter: document.getElementById('mg-counter'),
+      dots: overlay.querySelectorAll('.mg-dot')
+    };
+    galleryGo(0);
+    initGallerySwipe();
+  } else {
+    galleryState = null;
+  }
+}
+
+function galleryGo(i) {
+  if (!galleryState) return;
+  const n = galleryState.items.length;
+  galleryState.index = (i + n) % n;
+  const idx = galleryState.index;
+  galleryState.track.style.transform = `translateX(${-idx * 100}%)`;
+  if (galleryState.label) galleryState.label.textContent = galleryState.items[idx].label;
+  if (galleryState.counter) galleryState.counter.textContent = `${idx + 1} / ${n}`;
+  galleryState.dots.forEach((d, di) => d.classList.toggle('active', di === idx));
+}
+
+function galleryStep(dir) {
+  if (galleryState) galleryGo(galleryState.index + dir);
+}
+
+function initGallerySwipe() {
+  const vp = document.getElementById('mg-viewport');
+  if (!vp) return;
+  let startX = 0, dragging = false;
+  vp.addEventListener('pointerdown', e => { dragging = true; startX = e.clientX; });
+  vp.addEventListener('pointerup', e => {
+    if (!dragging) return;
+    dragging = false;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 45) galleryStep(dx < 0 ? 1 : -1);
+  });
+  vp.addEventListener('pointercancel', () => { dragging = false; });
+}
+
+// Agrega el producto al carrito; si hay un diseño elegido en el carrusel,
+// lo refleja en el nombre (para el carrito y el mensaje de WhatsApp).
+function addToCartFromModal(productId) {
+  const product = getProductById(productId);
+  if (!product) return;
+  if (galleryState && Array.isArray(product.gallery)) {
+    const design = galleryState.items[galleryState.index].label;
+    cart.add({ ...product, name: `${product.name} (${design})` });
+  } else {
+    cart.add(product);
+  }
 }
 
 function closeProductModal() {
   const overlay = document.getElementById('product-modal');
   overlay?.classList.remove('open');
   document.body.style.overflow = '';
+  galleryState = null;
 }
 
 // ═══════════════════════════════
@@ -301,5 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') { closeCart(); closeProductModal(); }
+    else if (galleryState && e.key === 'ArrowLeft') galleryStep(-1);
+    else if (galleryState && e.key === 'ArrowRight') galleryStep(1);
   });
 });
