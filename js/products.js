@@ -672,10 +672,14 @@ const PRODUCTS = [
     name: "Termo Imitación Stanley",
     price: 25000,
     category: "termos",
-    image: "images/64.jpg",
-    description: "Termo 1,2L con pico a rosca en verde y rosa",
+    image: "images/64-verde.jpg",
+    description: "Termo 1,2L con pico a rosca. Elegí el color deslizando entre las opciones.",
     featured: false,
-    tags: ["termo"]
+    tags: ["termo"],
+    gallery: [
+      { src: "images/64-verde.jpg", label: "Verde" },
+      { src: "images/64-rosa.jpg",  label: "Rosa" }
+    ]
   },
   {
     id: 65,
