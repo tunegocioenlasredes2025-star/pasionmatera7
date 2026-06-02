@@ -880,10 +880,18 @@ const PRODUCTS = [
     name: "Mochila Bolso Matero + Yerbero + Azucarero",
     price: 20000,
     category: "materas",
-    image: "images/84.jpg",
-    description: "Diferentes diseños disponibles, incluye yerbero y azucarero",
-    featured: false,
-    tags: ["matera", "bolso", "mochila"]
+    image: "images/84-1.jpg",
+    description: "Mochila/bolso matero con yerbero y azucarero. Elegí tu diseño deslizando entre las opciones.",
+    featured: true,
+    tags: ["matera", "bolso", "mochila"],
+    gallery: [
+      { src: "images/84-1.jpg", label: "Modelo 1" },
+      { src: "images/84-2.jpg", label: "Modelo 2" },
+      { src: "images/84-3.jpg", label: "Modelo 3" },
+      { src: "images/84-4.jpg", label: "Modelo 4" },
+      { src: "images/84-5.jpg", label: "Modelo 5" },
+      { src: "images/84-6.jpg", label: "Modelo 6" }
+    ]
   },
   {
     id: 85,
@@ -1047,6 +1055,27 @@ const PRODUCTS = [
       { src: "images/138-negro.jpg",  label: "Negro" },
       { src: "images/138-blanco.jpg", label: "Blanco" },
       { src: "images/138-rosa.jpg",   label: "Rosa" }
+    ]
+  },
+  {
+    id: 140,
+    name: "Mates Térmicos Grabados",
+    price: 8990,
+    category: "vasos",
+    image: "images/140-1.jpg",
+    description: "Mates térmicos con grabados. Elegí tu diseño deslizando entre los modelos disponibles.",
+    featured: true,
+    tags: ["mate", "termico", "grabado", "vaso"],
+    gallery: [
+      { src: "images/140-1.jpg", label: "Grabado 1" },
+      { src: "images/140-2.jpg", label: "Grabado 2" },
+      { src: "images/140-3.jpg", label: "Grabado 3" },
+      { src: "images/140-4.jpg", label: "Grabado 4" },
+      { src: "images/140-5.jpg", label: "Grabado 5" },
+      { src: "images/140-6.jpg", label: "Grabado 6" },
+      { src: "images/140-7.jpg", label: "Grabado 7" },
+      { src: "images/140-8.jpg", label: "Grabado 8" },
+      { src: "images/140-9.jpg", label: "Grabado 9" }
     ]
   },
 
@@ -1248,6 +1277,36 @@ const PRODUCTS = [
     tags: ["accesorio", "yerbero", "azucarero", "latas", "grabado", "futbol"]
   },
   {
+    id: 139,
+    name: "Latas Matero x2 — Yerbero + Azucarero",
+    price: 8500,
+    category: "accesorios",
+    image: "images/139-1.jpg",
+    description: "Set de latas Matero x2 (yerbero + azucarero). Elegí tu color deslizando entre las opciones.",
+    featured: true,
+    tags: ["accesorio", "yerbero", "azucarero", "latas", "matero"],
+    gallery: [
+      { src: "images/139-1.jpg", label: "Color 1" },
+      { src: "images/139-2.jpg", label: "Color 2" },
+      { src: "images/139-3.jpg", label: "Color 3" },
+      { src: "images/139-4.jpg", label: "Color 4" },
+      { src: "images/139-5.jpg", label: "Color 5" },
+      { src: "images/139-6.jpg", label: "Color 6" },
+      { src: "images/139-7.jpg", label: "Color 7" },
+      { src: "images/139-8.jpg", label: "Color 8" }
+    ]
+  },
+  {
+    id: 142,
+    name: "Yerbera de Cuero",
+    price: 9980,
+    category: "accesorios",
+    image: "images/142.jpg",
+    description: "Yerbera de cuero artesanal.",
+    featured: false,
+    tags: ["accesorio", "yerbera", "cuero"]
+  },
+  {
     id: 116,
     name: "Chaulata x2 — Yerbero + Azucarero Interior Plastificado",
     price: 8500,
@@ -1320,6 +1379,16 @@ const PRODUCTS = [
     description: "Tabla de asado de madera con manija, medidas 50x30 cm.",
     featured: true,
     tags: ["asado", "tabla", "madera"]
+  },
+  {
+    id: 141,
+    name: "Tabla de Asado Premium 50x30 — Eucaliptus Saligna",
+    price: 20000,
+    category: "asado",
+    image: "images/141.jpg",
+    description: "Tabla de asado premium 50x30 cm en madera de eucaliptus saligna.",
+    featured: false,
+    tags: ["asado", "tabla", "madera", "premium"]
   },
 
   // ═══════════════════════════════════════
