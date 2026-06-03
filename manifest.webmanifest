@@ -1,0 +1,26 @@
+{
+  "name": "Pasión Matera 7 — Mates Artesanales Premium",
+  "short_name": "Pasión Matera 7",
+  "description": "Mates artesanales premium, termos, bombillas, asado y grabados personalizados. Envíos a todo Argentina.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0f1a14",
+  "theme_color": "#0f1a14",
+  "lang": "es-AR",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/images/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}

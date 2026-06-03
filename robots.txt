@@ -1,0 +1,27 @@
+# robots.txt — Pasión Matera 7
+# https://pasionmatera7.com/
+
+User-agent: *
+Allow: /
+Disallow: /_vercel/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Bingbot
+Allow: /
+
+# Bots de IA generativa — permitidos (contenido informativo/comercial público)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://pasionmatera7.com/sitemap.xml
