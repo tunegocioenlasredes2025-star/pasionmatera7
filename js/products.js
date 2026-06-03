@@ -1581,3 +1581,66 @@ function getProductsByCategory(category) {
 function getProductById(id) {
   return PRODUCTS.find(p => p.id === id);
 }
+
+
+// --------------------------------------------------------
+// SEO · JSON-LD ItemList con todos los productos
+// Genera schema.org/Product por cada item dinámicamente.
+// Si la página define window.PM7_CATEGORY antes de cargar
+// este script, filtra el listado por esa categoría.
+// --------------------------------------------------------
+(function injectProductSchema() {
+  try {
+    var category = (typeof window !== "undefined" && window.PM7_CATEGORY) ? String(window.PM7_CATEGORY) : null;
+    var items = Array.isArray(PRODUCTS) ? PRODUCTS.slice() : [];
+    if (category && category !== "todos") items = items.filter(function (p) { return p.category === category; });
+    if (!items.length) return;
+
+    var origin = (typeof location !== "undefined" && location.origin && location.origin.indexOf("http") === 0)
+      ? location.origin.replace(/\/$/, "")
+      : "https://pasionmatera7.com";
+
+    var listElements = items.map(function (p, i) {
+      var imageUrl = (p.image || "").replace(/^\.?\//, "");
+      var absoluteImage = /^https?:\/\//i.test(imageUrl) ? imageUrl : (origin + "/" + imageUrl);
+      var productUrl = origin + "/catalogo.html?cat=" + encodeURIComponent(p.category) + "#producto-" + p.id;
+      return {
+        "@type": "ListItem",
+        "position": i + 1,
+        "item": {
+          "@type": "Product",
+          "@id": productUrl,
+          "name": p.name,
+          "description": p.description || ("Producto artesanal premium · " + p.name),
+          "image": absoluteImage,
+          "sku": "PM7-" + String(p.id),
+          "category": p.category,
+          "brand": { "@type": "Brand", "name": "Pasión Matera 7" },
+          "offers": {
+            "@type": "Offer",
+            "url": productUrl,
+            "priceCurrency": "ARS",
+            "price": String(p.price || 0),
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition",
+            "seller": { "@type": "Organization", "name": "Pasión Matera 7" }
+          }
+        }
+      };
+    });
+
+    var schema = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": category ? ("Catálogo · " + category) : "Catálogo Pasión Matera 7",
+      "numberOfItems": items.length,
+      "itemListOrder": "https://schema.org/ItemListUnordered",
+      "itemListElement": listElements
+    };
+
+    var s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.text = JSON.stringify(schema);
+    (document.head || document.body || document.documentElement).appendChild(s);
+  } catch (e) { /* silencio: si algo falla, no rompemos la página */ }
+})();
